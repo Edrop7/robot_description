@@ -155,4 +155,26 @@
         </visual>
     </link>
 
+    <!-- Joint - chassis / castor wheel -->
+    <joint name="joint_chassis_castor_wheel" type="fixed">
+        <origin rpy="0 0 0" xyz="0.875 0 -0.275" />
+        <child link="link_castor_wheel" />
+        <parent link="link_chassis" />
+        <axis rpy="0 0 0" xyz="0 0 0" />
+    </joint>
+
+    <!-- Link - castor wheel -->
+    <link name="link_castor_wheel">
+        <visual>
+            <geometry>
+                <sphere radius="0.125" />
+            </geometry>
+            <material name="Blue">
+                <color rgba="0 0 1 1" />
+            </material>
+        </visual>
+    </link>
+
+
+
 </robot>
