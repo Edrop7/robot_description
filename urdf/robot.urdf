@@ -17,7 +17,7 @@
 
         <visual>
             <geometry>
-                <box size="2 1.3 0.4" />
+                <mesh filename="package://robot_description/meshes/chassis.stl" />
             </geometry>
             <material name="Blue">
                 <color rgba="0 0 1 1" />
@@ -52,7 +52,7 @@
         <visual>
             <origin rpy="1.5707 0 0" xyz="0 0.18 0" />
             <geometry>
-                <cylinder length="0.12" radius="0.4"/>
+                <mesh filename="package://robot_description/meshes/wheel.stl" />
             </geometry>
             <material name="Black">
                 <color rgba="0 0 0 1" />
@@ -62,27 +62,27 @@
         <collision>
             <origin rpy="1.5707 0 0" xyz="0 0.06 0" />
             <geometry>
-                <cylinder length="0.12" radius="0.08"/>
+                <cylinder length="0.18" radius="0.08"/>
             </geometry>
         </collision>
         <visual>
             <origin rpy="1.5707 0 0" xyz="0 0.06 0" />
             <geometry>
-                <cylinder length="0.12" radius="0.08"/>
+                <cylinder length="0.18" radius="0.08"/>
             </geometry>
-            <material name="Blue">
-                <color rgba="0 0 1 1" />
+            <material name="White">
+                <color rgba="1 1 1 1" />
             </material>
         </visual>
 
         <collision>
-            <origin rpy="0 0 0" xyz="0 0.24 0" />
+            <origin rpy="0 0 0" xyz="0 0.18 0" />
             <geometry>
                 <box size="0.03 0.01 0.6" />
             </geometry>
         </collision>
         <visual>
-            <origin rpy="0 0 0" xyz="0 0.24 0" />
+            <origin rpy="0 0 0" xyz="0 0.18 0" />
             <geometry>
                 <box size="0.03 0.01 0.6" />
             </geometry>
@@ -119,7 +119,7 @@
         <visual>
             <origin rpy="1.5707 0 0" xyz="0 -0.18 0" />
             <geometry>
-                <cylinder length="0.12" radius="0.4"/>
+                <mesh filename="package://robot_description/meshes/wheel.stl" />
             </geometry>
             <material name="Black">
                 <color rgba="0 0 0 1" />
@@ -129,27 +129,27 @@
         <collision>
             <origin rpy="1.5707 0 0" xyz="0 -0.06 0" />
             <geometry>
-                <cylinder length="0.12" radius="0.08"/>
+                <cylinder length="0.18" radius="0.08"/>
             </geometry>
         </collision>
         <visual>
             <origin rpy="1.5707 0 0" xyz="0 -0.06 0" />
             <geometry>
-                <cylinder length="0.12" radius="0.08"/>
+                <cylinder length="0.18" radius="0.08"/>
             </geometry>
-            <material name="Blue">
-                <color rgba="0 0 1 1" />
+            <material name="White">
+                <color rgba="1 1 1 1" />
             </material>
         </visual>
 
         <collision>
-            <origin rpy="0 0 0" xyz="0 -0.24 0" />
+            <origin rpy="0 0 0" xyz="0 -0.18 0" />
             <geometry>
                 <box size="0.03 0.01 0.6" />
             </geometry>
         </collision>
         <visual>
-            <origin rpy="0 0 0" xyz="0 -0.24 0" />
+            <origin rpy="0 0 0" xyz="0 -0.18 0" />
             <geometry>
                 <box size="0.03 0.01 0.6" />
             </geometry>
