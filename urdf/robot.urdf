@@ -1,19 +1,32 @@
 <?xml version="1.0" ?>
 
 <robot name="robot">
+    <!-- Gazebo - preserve caster -->
+    <gazebo reference="joint_chassis_caster_wheel">
+        <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>
+
     <!-- Gazebo - colors -->
     <gazebo reference="link_chassis">
         <material>Gazebo/Orange</material>
-    </gazebo>
+    </gazebo>    
     <gazebo reference="link_caster_wheel">
         <material>Gazebo/Black</material>
-    </gazebo>
+        <mu1>0.0</mu1>
+        <mu2>0.0</mu2>
+    </gazebo>s
     <gazebo reference="link_left_wheel">
         <material>Gazebo/DarkGrey</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
     </gazebo>
     <gazebo reference="link_right_wheel">
         <material>Gazebo/DarkGrey</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
     </gazebo>
+
+    
 
     <!-- Link - chassis -->
     <link name="link_chassis">
@@ -173,16 +186,22 @@
         </visual>
     </link>
 
-    <!-- Joint - chassis / castor wheel -->
-    <joint name="joint_chassis_castor_wheel" type="fixed">
+    <!-- Joint - chassis / caster wheel -->
+    <joint name="joint_chassis_caster_wheel" type="fixed">
         <origin rpy="0 0 0" xyz="0.875 0 -0.275" />
-        <child link="link_castor_wheel" />
+        <child link="link_caster_wheel" />
         <parent link="link_chassis" />
-        <axis rpy="0 0 0" xyz="0 0 0" />
+        <joint_properties damping="1.0" friction="1.0" />
     </joint>
 
-    <!-- Link - castor wheel -->
-    <link name="link_castor_wheel">
+    <!-- Link - caster wheel -->
+    <link name="link_caster_wheel">
+        <inertial>
+            <mass value="1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.002526666666667" ixy="0" ixz="0" iyy="0.002526666666667" iyz="0" izz="0.005"/>
+        </inertial>
+
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
