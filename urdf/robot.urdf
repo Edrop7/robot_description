@@ -17,10 +17,10 @@
 
         <visual>
             <geometry>
-                <box size="2 1.3 0.4" />
+                <mesh filename="package://robot_description/meshes/chassis.stl" />
             </geometry>
-            <material name="Red">
-                <color rgba="1 0 0 1" />
+            <material name="Blue">
+                <color rgba="0 0 1 1" />
             </material>
         </visual>
     </link>
@@ -52,21 +52,137 @@
         <visual>
             <origin rpy="1.5707 0 0" xyz="0 0.18 0" />
             <geometry>
-                <cylinder length="0.12" radius="0.4"/>
+                <mesh filename="package://robot_description/meshes/wheel.stl" />
             </geometry>
+            <material name="Black">
+                <color rgba="0 0 0 1" />
+            </material>
         </visual>
 
         <collision>
             <origin rpy="1.5707 0 0" xyz="0 0.06 0" />
             <geometry>
-                <cylinder length="0.12" radius="0.08"/>
+                <cylinder length="0.18" radius="0.08"/>
             </geometry>
         </collision>
         <visual>
             <origin rpy="1.5707 0 0" xyz="0 0.06 0" />
             <geometry>
-                <cylinder length="0.12" radius="0.08"/>
+                <cylinder length="0.18" radius="0.08"/>
             </geometry>
+            <material name="White">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0.18 0" />
+            <geometry>
+                <box size="0.03 0.01 0.6" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0.18 0" />
+            <geometry>
+                <box size="0.03 0.01 0.6" />
+            </geometry>
+            <material name="White">
+                <color rgba="1 1 1 1" />
+            </material>
         </visual>
     </link>
+
+    <!-- Joint - chassis / right wheel -->
+    <joint name="joint_chassis_right_wheel" type="continuous">
+        <origin rpy="0 0 0" xyz="-0.5 -0.65 0" />
+        <child link="link_right_wheel" />
+        <parent link="link_chassis" />
+        <axis rpy="0 0 0" xyz="0 1 0" />
+        <limit effort="10000" velocity="1000" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+
+    <!-- Link - right wheel -->
+    <link name="link_right_wheel">
+        <inertial>
+            <mass value="1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.002526666666667" ixy="0" ixz="0" iyy="0.002526666666667" iyz="0" izz="0.005"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="1.5707 0 0" xyz="0 -0.18 0" />
+            <geometry>
+                <cylinder length="0.12" radius="0.4"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="1.5707 0 0" xyz="0 -0.18 0" />
+            <geometry>
+                <mesh filename="package://robot_description/meshes/wheel.stl" />
+            </geometry>
+            <material name="Black">
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin rpy="1.5707 0 0" xyz="0 -0.06 0" />
+            <geometry>
+                <cylinder length="0.18" radius="0.08"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="1.5707 0 0" xyz="0 -0.06 0" />
+            <geometry>
+                <cylinder length="0.18" radius="0.08"/>
+            </geometry>
+            <material name="White">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 -0.18 0" />
+            <geometry>
+                <box size="0.03 0.01 0.6" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 -0.18 0" />
+            <geometry>
+                <box size="0.03 0.01 0.6" />
+            </geometry>
+            <material name="White">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- Joint - chassis / castor wheel -->
+    <joint name="joint_chassis_castor_wheel" type="fixed">
+        <origin rpy="0 0 0" xyz="0.875 0 -0.275" />
+        <child link="link_castor_wheel" />
+        <parent link="link_chassis" />
+        <axis rpy="0 0 0" xyz="0 0 0" />
+    </joint>
+
+    <!-- Link - castor wheel -->
+    <link name="link_castor_wheel">
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <sphere radius="0.125" />
+            </geometry>
+        </collision>
+        <visual>
+            <geometry>
+                <sphere radius="0.125" />
+            </geometry>
+            <material name="Black">
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+    </link>
+
 </robot>
