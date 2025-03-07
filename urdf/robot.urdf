@@ -26,7 +26,22 @@
         <mu2>0.2</mu2>
     </gazebo>
 
-    
+    <!-- Gazebo - differential driver -->
+    <gazebo>
+        <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>20</updateRate>
+            <leftJoint>joint_chassis_left_wheel</leftJoint>
+            <rightJoint>joint_chassis_right_wheel</rightJoint>
+            <wheelSeparation>1.66</wheelSeparation>
+            <wheelDiameter>0.8</wheelDiameter>
+            <torque>10</torque>
+            <commandTopic>cmd_vel</commandTopic>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <robotBaseFrame>link_chassis</robotBaseFrame>
+        </plugin>
+    </gazebo>
 
     <!-- Link - chassis -->
     <link name="link_chassis">
